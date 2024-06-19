@@ -1,0 +1,33 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.9.21"
+    id "io.gitlab.arturbosch.detekt" version "$detektVersion"
+}
+
+group = "org.example"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.google.inject/guice
+    implementation "com.google.inject:guice:7.0.0"
+
+    testImplementation "org.jetbrains.kotlin:kotlin-test"
+    // https://mvnrepository.com/artifact/io.mockk/mockk
+    testImplementation 'io.mockk:mockk:1.13.11'
+
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
+}
+
+detekt {
+    autoCorrect = true
+}
+
+test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(18)
+}
