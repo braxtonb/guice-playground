@@ -8,7 +8,7 @@ import org.example.services.ScoreService
 fun main() {
     val injector = Guice.createInjector(ServicesModule())
     val scoreService = injector.getInstance(ScoreService::class.java)
-    val sport = Sport.fromString(System.getenv("SPORT"))
+    val sport = Sport.fromString(System.getenv("SPORT") ?: Sport.FOOTBALL.name)
 
     scoreService.score(sport)
     scoreService.celebrate(sport)

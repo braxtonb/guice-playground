@@ -1,4 +1,5 @@
 plugins {
+    id "application"
     id "org.jetbrains.kotlin.jvm" version "1.9.21"
     id "io.gitlab.arturbosch.detekt" version "$detektVersion"
 }
@@ -19,6 +20,10 @@ dependencies {
     testImplementation 'io.mockk:mockk:1.13.11'
 
     detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
+}
+
+application {
+    mainClass = 'org.example.MainKt'
 }
 
 detekt {
